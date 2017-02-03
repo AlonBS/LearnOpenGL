@@ -1,3 +1,8 @@
+#Alonbs notes:
+This rep. is forked from https://github.com/JoeyDeVries/LearnOpenGL for openGL practices. I change the repository from time to time to test new feature. (Yet, this repo is upstreamed to the original rep. for updates etc.)
+
+
+
 # learnopengl.com code repository
 Contains code samples for all tutorials of [http://learnopengl.com](http://learnopengl.com). 
 
