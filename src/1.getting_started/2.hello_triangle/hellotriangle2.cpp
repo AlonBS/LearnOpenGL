@@ -129,7 +129,6 @@ int main()
     // Game loop
     while (!glfwWindowShouldClose(window))
     {
-    	sleep(3);
         // Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
         glfwPollEvents();
 
@@ -154,7 +153,7 @@ int main()
         glBindVertexArray(0);
 
         // Swap the screen buffers
-        //glfwSwapBuffers(window);
+        glfwSwapBuffers(window);
     }
     // Properly de-allocate all resources once they've outlived their purpose
     glDeleteVertexArrays(2, VAOs);

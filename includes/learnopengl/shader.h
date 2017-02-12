@@ -28,6 +28,14 @@ public:
         gShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
         try 
         {
+        	std::ifstream tmp;
+        	tmp.open("./a.tmp");
+
+        	std::stringstream a;
+        	a << tmp.rdbuf();
+
+        	std::cout << a.str() << std::endl;
+
             // Open files
             vShaderFile.open(vertexPath);
             fShaderFile.open(fragmentPath);
