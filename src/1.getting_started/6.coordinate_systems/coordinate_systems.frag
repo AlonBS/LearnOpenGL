@@ -1,3 +1,5 @@
+
+
 #version 330 core
 in vec2 TexCoord;
 
@@ -10,3 +12,4 @@ void main()
 {
     color = mix(texture(ourTexture1, TexCoord), texture(ourTexture2, TexCoord), 0.2);
 }
+

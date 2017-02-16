@@ -4,7 +4,10 @@ layout (location = 2) in vec2 texCoord;
 
 out vec2 TexCoord;
 
+uniform mat4 rotation;
+uniform mat4 translation;
 uniform mat4 transform;
+
 
 void main()
 {
