@@ -25,6 +25,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void do_movement();
+void update_light_position();
 
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
@@ -166,6 +167,8 @@ int main()
         glfwPollEvents();
         do_movement();
 
+        update_light_position();
+
         // Clear the colorbuffer
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -176,7 +179,7 @@ int main()
         GLint lightColorLoc  = glGetUniformLocation(lightingShader.Program, "lightColor");
         GLint lightPosLoc    = glGetUniformLocation(lightingShader.Program, "lightPos");
         GLint viewPosLoc     = glGetUniformLocation(lightingShader.Program, "viewPos");
-        glUniform3f(objectColorLoc, 1.0f, 0.5f, 0.31f);
+        glUniform3f(objectColorLoc, 0.0f, 0.5f, 0.31f);
         glUniform3f(lightColorLoc,  1.0f, 1.0f, 1.0f);
         glUniform3f(lightPosLoc,    lightPos.x, lightPos.y, lightPos.z);
         glUniform3f(viewPosLoc,     camera.Position.x, camera.Position.y, camera.Position.z);
@@ -278,4 +281,18 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
     camera.ProcessMouseScroll(yoffset);
+}
+
+
+void update_light_position()
+{
+	float softx = 0.25;
+	float softy = 0.1;
+	//float softz = 1.8;
+
+
+	lightPos.x = softx * sin(glfwGetTime());
+	lightPos.y = softy * sin(glfwGetTime());
+	//lightPos.z = softz * sin(glfwGetTime());
+
 }
